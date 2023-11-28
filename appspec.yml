@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/mvc-ecommerce
+file_exists_behavior: OVERWRITE
+hooks:
+  BeforeInstall:
+    - location: /stop
+      runas: root
+  AfterInstall:
+    - location: /start
+      runas: root
